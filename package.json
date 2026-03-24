@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "build": "mkdir -p dist && cp index.html messages.html style.css script.js dist/"
+    "build": "mkdir -p dist && cp index.html messages.html style.css script.js dist/",
+    "deploy": "node deploy.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.4",
