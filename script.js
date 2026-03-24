@@ -1,7 +1,9 @@
 (() => {
-    const API_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:')
+    // Backend URL - can be set via global variable for production
+    const API_URL = window.BACKEND_URL ||
+        (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:')
         ? 'http://localhost:5000/api'
-        : `${window.location.origin}/api`;
+        : 'https://your-backend-url.vercel.app/api'; // Replace with your actual Vercel URL
 
     const navbar = document.getElementById('navbar');
     const menuToggle = document.querySelector('.menu-toggle');
