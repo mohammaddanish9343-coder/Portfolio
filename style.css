@@ -16,11 +16,11 @@ body {
 .section {
     padding: 80px 10%;
     text-align: center;
-    background: linear-gradient(to right, #0c6213, #0f1114);
+    background: linear-gradient(to right, #07a3e6, #4a4f55);
 }
 
 h1 span {
-    color: #3bf838;
+    color: #000000;
 }
 
 h2 {
@@ -41,7 +41,7 @@ h2 {
 
 .btn:hover {
     background: #9aa6a9;
-    color: #24f50d;
+    color: #07a3e6;
     text-shadow: #070e06 0 0 2px;
     transform: scale(1.05);
 }
@@ -62,7 +62,7 @@ header {
 .logo {
     font-weight: bold;
     font-size: 20px;
-    color: #21f605;
+    color: #07a3e6;
     
 }
 
@@ -89,7 +89,7 @@ nav a:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: linear-gradient(to right, #0c6213, #0f1114);
+    background: linear-gradient(to right, #07a3e6, #4a4f55);
 }
 
 /* ===== PROJECTS ===== */
