@@ -1,10 +1,13 @@
 ﻿const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const path = require('path');
 const { supabase, initPromise, tables } = require('./datab');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+app.use(express.static(path.join(__dirname)));
 
 app.use(cors());
 app.use(bodyParser.json({ limit: '10mb' }));

@@ -1,4 +1,8 @@
 (() => {
+    const API_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:')
+        ? 'http://localhost:5000/api'
+        : `${window.location.origin}/api`;
+
     const navbar = document.getElementById('navbar');
     const menuToggle = document.querySelector('.menu-toggle');
     const contactForm = document.getElementById('contactForm');
@@ -66,7 +70,7 @@
             };
 
             try {
-                const response = await fetch('http://localhost:5000/api/users', {
+                const response = await fetch(`${API_URL}/users`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
@@ -86,7 +90,12 @@
                 showNotification('Message saved to database.', 'success');
                 this.reset();
             } catch (error) {
-                showNotification(error.message || 'Something went wrong.', 'error');
+                const message = error.message || 'Something went wrong.';
+                if (message.toLowerCase().includes('failed to fetch')) {
+                    showNotification('Network error: could not reach backend. Start server: npm run dev (or npm start).', 'error');
+                } else {
+                    showNotification(message, 'error');
+                }
             } finally {
                 if (submitButton) {
                     submitButton.textContent = originalText;
